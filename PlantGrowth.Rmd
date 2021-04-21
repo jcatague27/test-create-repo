@@ -1,0 +1,61 @@
+---
+title: "PlantGrowth.Rmd"
+author: "Jasmine Catague"
+date: "21/04/2021"
+output: html_document
+---
+
+## Introduction
+
+In this exercise we are analysing the built-in plant growth dataset.
+
+```{r plantgrowth1} 
+
+head(PlantGrowth)
+str(PlantGrowth)
+
+```
+
+Subset ctrl, trt1, trt2
+```{r Subset}
+PlantGrowth$group
+ctrl<-subset(PlantGrowth,group=="ctrl") 
+head(ctrl)
+str(ctrl)
+trt1<-subset(PlantGrowth,group=="trt1")
+head(trt1)
+str(trt1)
+trt2<-subset(PlantGrowth,group=="trt2")
+head(trt2)
+str(trt2)
+```
+
+To extract the summary statistics
+
+```{r Summary stats}
+summary(ctrl)
+summary(trt1)
+summary(trt2)
+
+```
+
+To plot
+```{r Plots}
+boxplot(ctrl$weight,trt1$weight,trt2$weight,names=c("ctrl", "trt1", "trt2"), ylab="measurement", main="The boxplot of the weight of the control group")
+```
+
+
+T-test
+```{r ttest}
+t.test(trt1$weight, ctrl$weight)
+?t.test
+```
+
+
+Session Info= for reproducibility, to capture R versions
+```{r Session Info}
+sessionInfo()
+```
+
+
+

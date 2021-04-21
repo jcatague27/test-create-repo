@@ -1,0 +1,46 @@
+---
+title: "Cars.Rmd"
+author: "Jasmine Catague"
+date: "21/04/2021"
+output: html_document
+---
+
+## Question 2
+```{r cars}
+summary(cars)
+head(cars)
+str(cars)
+
+```
+
+Make a plot of speed vs distance
+
+```{r plot}
+
+mylm<-lm(cars$dist-cars$speed)
+mylm
+
+plot(cars$speed,cars$dist)
+abline(mylm)
+
+
+
+```
+
+
+Now find the pearson correlation coefficient
+
+```{r correl}
+cor(cars$speed,cars$dist)
+cor.test(cars$speed,cars$dist)
+
+
+```
+
+
+Session Information
+
+```{r session info}
+sessionInfo()
+
+```
